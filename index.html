@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sample One-Page – Coach</title>
+  <meta name="description" content="A one-pager portfolio site mockup for a life coach – featuring intro, testimonial, contact form, and elegant branding – built by LC.">
+  <meta property="og:title" content="Life Coach One-Page Site – Built by LC" />
+  <meta property="og:description" content="Explore this clean, conversion-optimised one-pager for coaches, built with love by LC." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lcacosta.com/pwyc-samples/coach" />
+  <meta property="og:image" content="https://images.pexels.com/photos/4098151/pexels-photo-4098151.jpeg" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 2rem 1rem;
+      background: #fff;
+      color: #222;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #BBB0E0;
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      color: #666;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+    .hero {
+      background: #f3f0fa;
+      padding: 2rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 80vh;
+      border-radius: 12px;
+      margin: 1.5rem auto 0;
+      display: block;
+    }
+
+    .testimonial {
+      background: #fafafa;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      max-width: 520px;
+      margin: 0 auto 2rem;
+      font-size: 0.95rem;
+    }
+
+    .testimonial img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact {
+      max-width: 520px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: #f3f0fa;
+      border-radius: 1rem;
+    }
+
+    .contact h2 {
+      color: #BBB0E0;
+      margin-bottom: 1rem;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact input,
+    .contact textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .contact input:focus,
+    .contact textarea:focus,
+    .contact input:hover,
+    .contact textarea:hover {
+      border-color: #BBB0E0;
+      box-shadow: 0 0 0 2px rgba(187, 176, 224, 0.3);
+      outline: none;
+    }
+
+    .contact button {
+      background: #BBB0E0;
+      color: white;
+      padding: 0.75rem;
+      border: none;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+
+    footer a {
+      color: #6ABFC4;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .copyright,
+    .built-by {
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      color: #aaa;
+    }
+
+    .sparkle-heart {
+      display: inline-block;
+      color: #E4A3B1;
+      animation: sparkle 1.5s infinite ease-in-out;
+    }
+
+    @keyframes sparkle {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.3);
+        opacity: 0.8;
+      }
+    }
+
+    .portrait-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 1rem auto 1.5rem;
+      display: block;
+      border: 2px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://images.pexels.com/photos/4098151/pexels-photo-4098151.jpeg" alt="Your Portrait" class="portrait-img">
+  <h1>Jasmine Lee</h1>
+  <p class="subtitle">Empowerment coach for women reclaiming their voice 💬✨</p>
+
+  <div class="hero">
+    <h2>You’re Meant for More</h2>
+    <p>I guide women through big life transitions with clarity, confidence, and compassion. Whether it’s a pivot, rebirth, or redefinition — I’ve got you.</p>
+    <img src="https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg" alt="Hero Image">
+  </div>
+
+  <div class="testimonial">
+    <img src="https://images.pexels.com/photos/1182825/pexels-photo-1182825.jpeg" alt="Client">
+    <p>"Jasmine helped me go from burned out to on fire 🔥 Her sessions changed my entire relationship with myself."<br><strong>– Alicia Mendez</strong></p>
+  </div>
+
+  <div class="contact">
+    <h2>Let’s Connect</h2>
+    <form action="https://formsubmit.co/lc@lcacosta.com" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <footer>
+    <div class="copyright">© 2025 Jasmine Lee • hello@jasminelifecoach.fake</div>
+    <div class="built-by">Made with <span class="sparkle-heart">♥</span> by <a href="https://lcacosta.com">LC</a></div>
+    <div>
+      <a href="https://instagram.com/jasminelifecoach" target="_blank">Instagram</a> |
+      <a href="https://twitter.com/jasminelifecoach" target="_blank">Twitter</a>
+    </div>
+  </footer>
+</body>
+</html>
