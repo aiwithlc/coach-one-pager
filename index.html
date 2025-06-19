@@ -19,6 +19,18 @@
       background: #fff;
       color: #222;
       text-align: center;
+      scroll-behavior: smooth;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h1 {
@@ -99,8 +111,8 @@
     .contact textarea:focus,
     .contact input:hover,
     .contact textarea:hover {
-      border-color: #6ABFC4;
-      box-shadow: 0 0 0 2px rgba(106, 191, 196, 0.3);
+      border-color: #BBB0E0;
+      box-shadow: 0 0 0 2px rgba(187, 176, 224, 0.3);
       outline: none;
     }
 
@@ -162,22 +174,22 @@
   </style>
 </head>
 <body>
-  <img src="https://images.pexels.com/photos/4098151/pexels-photo-4098151.jpeg" alt="Your Portrait" class="portrait-img">
-  <h1>Jasmine Lee</h1>
-  <p class="subtitle">Empowerment coach for women reclaiming their voice 💬✨</p>
+  <img src="https://images.pexels.com/photos/4098151/pexels-photo-4098151.jpeg" alt="Your Portrait" class="portrait-img reveal">
+  <h1 class="reveal">Jasmine Lee</h1>
+  <p class="subtitle reveal">Empowerment coach for women reclaiming their voice 💬✨</p>
 
-  <div class="hero">
+  <div class="hero reveal">
     <h2>You’re Meant for More</h2>
     <p>I guide women through big life transitions with clarity, confidence, and compassion. Whether it’s a pivot, rebirth, or redefinition — I’ve got you.</p>
     <img src="https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg" alt="Hero Image">
   </div>
 
-  <div class="testimonial">
+  <div class="testimonial reveal">
     <img src="https://images.pexels.com/photos/1182825/pexels-photo-1182825.jpeg" alt="Client">
     <p>"Jasmine helped me go from burned out to on fire 🔥 Her sessions changed my entire relationship with myself."<br><strong>– Alicia Mendez</strong></p>
   </div>
 
-  <div class="contact">
+  <div class="contact reveal">
     <h2>Let’s Connect</h2>
     <form action="https://formsubmit.co/lc@lcacosta.com" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
@@ -187,7 +199,7 @@
     </form>
   </div>
 
-  <footer>
+  <footer class="reveal">
     <div class="copyright">© 2025 Jasmine Lee • hello@jasminelifecoach.fake</div>
     <div class="built-by">Made with <span class="sparkle-heart">♥</span> by <a href="https://lcacosta.com">LC</a></div>
     <div>
@@ -195,5 +207,19 @@
       <a href="https://twitter.com/jasminelifecoach" target="_blank">Twitter</a>
     </div>
   </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
