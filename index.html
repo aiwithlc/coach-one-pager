@@ -3,151 +3,173 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sample One-Page – Coach</title>
-  <meta name="description" content="A one-pager portfolio site mockup for a life coach – featuring intro, testimonial, contact form, and elegant branding – built by LC.">
-  <meta property="og:title" content="Life Coach One-Page Site – Built by LC" />
-  <meta property="og:description" content="Explore this clean, conversion-optimised one-pager for coaches, built with love by LC." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://lcacosta.com/pwyc-samples/coach" />
-  <meta property="og:image" content="https://images.pexels.com/photos/4098151/pexels-photo-4098151.jpeg" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <title>Jasmine Lee – Empowerment Coach</title>
+  <meta name="description" content="A cinematic one-page experience for life coach Jasmine Lee – powered by design, motion, and confidence.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
+    :root {
+      --primary: #111;
+      --accent: #D8572A;
+      --bg: #fffefb;
+      --text: #1a1a1a;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      padding: 2rem 1rem;
-      background: #fff;
-      color: #222;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+
+    section {
+      padding: 6rem 1.5rem;
+      max-width: 720px;
+      margin: 0 auto;
       text-align: center;
-      scroll-behavior: smooth;
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease;
+    .hero-section {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: linear-gradient(140deg, #ffffff, #f1f1f1);
+      text-align: center;
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .hero-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('https://grainy-gradients.vercel.app/noise-light.png');
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    .portrait-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 100%;
+      object-fit: cover;
+      border: 4px solid #eee;
+      z-index: 1;
     }
 
     h1 {
-      font-size: 2rem;
-      color: #6ABFC4;
-      margin-bottom: 0.5rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 4rem;
+      background: linear-gradient(90deg, #000, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-top: 1.5rem;
+      z-index: 2;
     }
 
-    p.subtitle {
-      color: #666;
-      font-style: italic;
-      margin-bottom: 2rem;
+    .subtitle {
+      font-size: 1.25rem;
+      color: #444;
+      max-width: 420px;
+      margin-top: 1rem;
+      line-height: 1.6;
+      z-index: 2;
     }
 
-    .hero {
-      background: #eaf8f9;
-      padding: 2rem;
-      border-radius: 1rem;
-      margin-bottom: 2rem;
+    .scroll-cue {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #888;
+      animation: bounce 2s infinite;
     }
 
-    .hero img {
-      width: auto;
-      max-width: 100%;
-      height: auto;
-      max-height: 80vh;
-      border-radius: 12px;
-      margin: 1.5rem auto 0;
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    .wave-transition {
       display: block;
+      line-height: 0;
+      transform: translateY(-1px);
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.25rem;
+      margin-bottom: 1rem;
     }
 
     .testimonial {
-      background: #fafafa;
-      padding: 1.5rem;
+      background: #fff;
       border-radius: 1rem;
-      max-width: 520px;
-      margin: 0 auto 2rem;
-      font-size: 0.95rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      text-align: center;
     }
 
     .testimonial img {
       width: 48px;
       height: 48px;
       border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 0.5rem;
-    }
-
-    .contact {
-      max-width: 520px;
-      margin: 3rem auto;
-      padding: 2rem;
-      background: #eaf8f9;
-      border-radius: 1rem;
-    }
-
-    .contact h2 {
-      color: #6ABFC4;
       margin-bottom: 1rem;
     }
 
-    .contact form {
+    .contact-form {
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      margin-top: 2rem;
     }
 
-    .contact input,
-    .contact textarea {
+    .contact-form input,
+    .contact-form textarea {
       padding: 0.75rem;
       border: 1px solid #ccc;
       border-radius: 8px;
-      font-family: 'Poppins', sans-serif;
-      transition: border-color 0.3s, box-shadow 0.3s;
+      font-family: inherit;
     }
 
-    .contact input:focus,
-    .contact textarea:focus,
-    .contact input:hover,
-    .contact textarea:hover {
-      border-color: #BBB0E0;
-      box-shadow: 0 0 0 2px rgba(187, 176, 224, 0.3);
-      outline: none;
-    }
-
-    .contact button {
-      background: #6ABFC4;
+    .contact-form button {
+      background: linear-gradient(to right, #000, var(--accent));
       color: white;
       padding: 0.75rem;
       border: none;
       border-radius: 999px;
       font-weight: 600;
       cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      transform: scale(1.05);
     }
 
     footer {
-      margin-top: 3rem;
-      font-size: 0.85rem;
-      color: #aaa;
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
     }
 
     footer a {
-      color: #6ABFC4;
+      color: var(--accent);
       text-decoration: none;
-      font-weight: 600;
-    }
-
-    .copyright,
-    .built-by {
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
-      color: #aaa;
+      font-weight: 500;
     }
 
     .sparkle-heart {
       display: inline-block;
-      color: #E4A3B1;
+      color: var(--accent);
       animation: sparkle 1.5s infinite ease-in-out;
     }
 
@@ -161,65 +183,87 @@
         opacity: 0.8;
       }
     }
-
-    .portrait-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 1rem auto 1.5rem;
-      display: block;
-      border: 2px solid #ddd;
-    }
   </style>
 </head>
 <body>
-  <img src="https://images.pexels.com/photos/4098151/pexels-photo-4098151.jpeg" alt="Your Portrait" class="portrait-img reveal">
-  <h1 class="reveal">Jasmine Lee</h1>
-  <p class="subtitle reveal">Empowerment coach for women reclaiming their voice 💬✨</p>
+  <section class="hero-section">
+    <img src="https://images.pexels.com/photos/4098151/pexels-photo-4098151.jpeg" alt="Jasmine Lee portrait" class="portrait-img">
+    <h1>Jasmine Lee</h1>
+    <p class="subtitle">Empowerment coach for women reclaiming their voice.</p>
+    <div class="scroll-cue">↓ Scroll to begin</div>
+  </section>
 
-  <div class="hero reveal">
-    <h2>You’re Meant for More</h2>
+  <svg class="wave-transition" viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,0 C480,100 960,0 1440,100 L1440,00 L0,0 Z" fill="#fffefb" />
+  </svg>
+
+  <section>
+    <h2 class="section-title">You’re Meant for More</h2>
     <p>I guide women through big life transitions with clarity, confidence, and compassion. Whether it’s a pivot, rebirth, or redefinition — I’ve got you.</p>
-    <img src="https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg" alt="Hero Image">
-  </div>
+    <img src="https://images.pexels.com/photos/933964/pexels-photo-933964.jpeg" alt="Coaching support" style="border-radius: 1rem; margin-top: 2rem; max-width: 100%; height: auto;">
+  </section>
 
-  <div class="testimonial reveal">
-    <img src="https://images.pexels.com/photos/1182825/pexels-photo-1182825.jpeg" alt="Client">
-    <p>"Jasmine helped me go from burned out to on fire 🔥 Her sessions changed my entire relationship with myself."<br><strong>– Alicia Mendez</strong></p>
-  </div>
+  <section class="testimonial" style="text-align:center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+  <img src="https://images.pexels.com/photos/1182825/pexels-photo-1182825.jpeg" alt="Client">
+  <p style="max-width: 520px;">"Jasmine helped me go from burned out to on fire 🔥 Her sessions changed my entire relationship with myself."<br><strong>– Alicia Mendez</strong></p>
+</section>
 
-  <div class="contact reveal">
-    <h2>Let’s Connect</h2>
-    <form action="https://formsubmit.co/lc@lcacosta.com" method="POST">
+
+  <section>
+    <h2 class="section-title">Let’s Connect</h2>
+    <form action="https://formsubmit.co/lc@lcacosta.com" method="POST" class="contact-form">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" rows="4" placeholder="Your Message"></textarea>
       <button type="submit">Send Message</button>
     </form>
-  </div>
+  </section>
 
-  <footer class="reveal">
-    <div class="copyright">© 2025 Jasmine Lee • hello@jasminelifecoach.fake</div>
-    <div class="built-by">Made with <span class="sparkle-heart">♥</span> by <a href="https://lcacosta.com">LC</a></div>
-    <div>
-      <a href="https://instagram.com/jasminelifecoach" target="_blank">Instagram</a> |
-      <a href="https://twitter.com/jasminelifecoach" target="_blank">Twitter</a>
-    </div>
+  <footer>
+    <p>© 2025 Jasmine Lee • hello@jasminelifecoach.fake</p>
+    <p>Made with <span class="sparkle-heart">♥</span> by <a href="https://lcacosta.com">LC</a></p>
+    <p><a href="https://instagram.com/jasminelifecoach" target="_blank">Instagram</a> · <a href="https://twitter.com/jasminelifecoach" target="_blank">Twitter</a></p>
   </footer>
 
   <script>
-    const revealElements = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
+    gsap.registerPlugin(ScrollTrigger);
 
-    revealElements.forEach(el => observer.observe(el));
+    gsap.from(".hero-section img", {
+      y: 50,
+      opacity: 0,
+      duration: 1.2,
+      ease: "power3.out"
+    });
+
+    gsap.from("h1", {
+      y: 80,
+      opacity: 0,
+      delay: 0.3,
+      duration: 1.2,
+      ease: "expo.out"
+    });
+
+    gsap.from(".subtitle", {
+      y: 60,
+      opacity: 0,
+      delay: 0.5,
+      duration: 1.2,
+      ease: "power2.out"
+    });
+
+    gsap.utils.toArray("section").forEach((section, i) => {
+      if (i === 0) return; // skip hero
+      gsap.from(section, {
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%"
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power2.out"
+      });
+    });
   </script>
 </body>
 </html>
